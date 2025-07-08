@@ -35,3 +35,39 @@ sudo apt install -y hhvm
 hhvm --version
 
 ```
+
+
+# Install autoloading
+
+```
+// create a hh-autoload.json
+{
+  "roots": [
+    "src/"
+  ],
+  "devRoots": [
+    "tests/"
+  ],
+  "devFailureHandler": "Facebook\\AutoloadMap\\HHClientFallbackHandler"
+}
+
+// run
+php /usr/local/bin/composer require hhvm/hhvm-autoload
+
+
+// install
+composer require hhvm/hsl
+```
+
+
+
+
+
+# run
+```
+//run whenever there's new class
+./vendor/bin/hh-autoload
+
+//run command for testing
+hhvm hramework.hh runserver
+```
