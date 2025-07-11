@@ -3,7 +3,7 @@
 namespace Facebook\AutoloadMap\Generated {
 
 function build_id(): string {
-  return '2025-07-08T04:19:34-07:00!ae2cb59aec54fed83948f277c901ef12';
+  return '2025-07-11T05:01:20-07:00!d3f1032f77c1843289a3661ffefd974b';
 }
 
 function root(): string {
@@ -24,42 +24,16 @@ function map_uncached(): \Facebook\AutoloadMap\AutoloadMap {
   'class' => 
   dict [
     'hramework\\cli\\command' => 'src/Cli/Command.hack',
+    'hramework\\cli\\helpcommand' => 'src/Cli/HelpCommand.hack',
     'hramework\\cli\\buildcommand' => 'src/Cli/BuildCommand.hack',
     'hramework\\cli\\clikernel' => 'src/Cli/CliKernel.hack',
-    'hramework\\cli\\helpcommand' => 'src/Cli/HelpCommand.hack',
     'hramework\\cli\\runservercommand' => 'src/Cli/RunServerCommand.hack',
-    'facebook\\autoloadmap\\builder' => 'vendor/hhvm/hhvm-autoload/src/builders/Builder.hack',
-    'facebook\\autoloadmap\\scanner' => 'vendor/hhvm/hhvm-autoload/src/builders/Scanner.hack',
-    'facebook\\autoloadmap\\autoloadmap' => 'vendor/hhvm/hhvm-autoload/src/AutoloadMap.hack',
-    'facebook\\autoloadmap\\configurationexception' => 'vendor/hhvm/hhvm-autoload/src/ConfigurationException.hack',
-    'facebook\\autoloadmap\\configurationloader' => 'vendor/hhvm/hhvm-autoload/src/ConfigurationLoader.hack',
-    'facebook\\autoloadmap\\rootimporter' => 'vendor/hhvm/hhvm-autoload/src/builders/RootImporter.hack',
-    'facebook\\autoloadmap\\exception' => 'vendor/hhvm/hhvm-autoload/src/Exception.hack',
-    'facebook\\autoloadmap\\config' => 'vendor/hhvm/hhvm-autoload/src/Config.hack',
-    'facebook\\autoloadmap\\failurehandler' => 'vendor/hhvm/hhvm-autoload/src/FailureHandler.hack',
-    'facebook\\autoloadmap\\factparsescanner' => 'vendor/hhvm/hhvm-autoload/src/builders/FactParseScanner.hack',
-    'facebook\\autoloadmap\\hhimporter' => 'vendor/hhvm/hhvm-autoload/src/builders/HHImporter.hack',
-    'facebook\\autoloadmap\\hhclientfallbackhandler' => 'vendor/hhvm/hhvm-autoload/src/HHClientFallbackHandler.hack',
-    'facebook\\autoloadmap\\parser' => 'vendor/hhvm/hhvm-autoload/src/Parser.hack',
-    'facebook\\autoloadmap\\includedroots' => 'vendor/hhvm/hhvm-autoload/src/IncludedRoots.hack',
-    'facebook\\autoloadmap\\merger' => 'vendor/hhvm/hhvm-autoload/src/Merger.hack',
-    'facebook\\autoloadmap\\writer' => 'vendor/hhvm/hhvm-autoload/src/Writer.hack',
   ],
   'function' => 
   dict [
-    'facebook\\autoloadmap\\_private\\typeassert\\is_string' => 'vendor/hhvm/hhvm-autoload/src/TypeAssert.hack',
-    'facebook\\autoloadmap\\_private\\typeassert\\is_nullable_string' => 'vendor/hhvm/hhvm-autoload/src/TypeAssert.hack',
-    'facebook\\autoloadmap\\_private\\typeassert\\is_nullable_bool' => 'vendor/hhvm/hhvm-autoload/src/TypeAssert.hack',
-    'facebook\\autoloadmap\\_private\\typeassert\\is_array_of_strings' => 'vendor/hhvm/hhvm-autoload/src/TypeAssert.hack',
-    'facebook\\autoloadmap\\_private\\typeassert\\is_vec_like_of_strings' => 'vendor/hhvm/hhvm-autoload/src/TypeAssert.hack',
-    'facebook\\autoloadmap\\_private\\typeassert\\is_nullable_vec_like_of_strings' => 'vendor/hhvm/hhvm-autoload/src/TypeAssert.hack',
-    'facebook\\autoloadmap\\_private\\typeassert\\is_nullable_enum' => 'vendor/hhvm/hhvm-autoload/src/TypeAssert.hack',
-    'facebook\\autoloadmap\\_private\\typeassert\\is_array_of_shapes_with_name_field_and_kind' => 'vendor/hhvm/hhvm-autoload/src/TypeAssert.hack',
   ],
   'type' => 
   dict [
-    'facebook\\autoloadmap\\autoloadmap' => 'vendor/hhvm/hhvm-autoload/src/AutoloadMap.hack',
-    'facebook\\autoloadmap\\config' => 'vendor/hhvm/hhvm-autoload/src/Config.hack',
   ],
   'constant' => 
   dict [
@@ -99,12 +73,7 @@ function initialize(): void {
 
   \HH\autoload_set_paths(/* HH_FIXME[4110] incorrect hhi */ $map, Generated\root());
 
-  if (\Facebook\AutoloadMap\HHClientFallbackHandler::isEnabled()) {
-  $handler = new \Facebook\AutoloadMap\HHClientFallbackHandler();
-  $map['failure'] = inst_meth($handler, 'handleFailure');
-  \HH\autoload_set_paths(/* HH_FIXME[4110] incorrect hhi */ $map, Generated\root());
-  $handler->initialize();
-}
+  
 }
 
 }

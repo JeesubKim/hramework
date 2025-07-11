@@ -65,9 +65,11 @@ composer require hhvm/hsl
 
 # run
 ```
+cd /mnt/d/Proj/hramework
+
 //run whenever there's new class
 ./vendor/bin/hh-autoload
 
 //run command for testing
-hhvm hramework.hh runserver
+hhvm hramework.hack runserver
 ```
