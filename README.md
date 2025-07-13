@@ -73,3 +73,18 @@ cd /mnt/d/Proj/hramework
 //run command for testing
 hhvm hramework.hack runserver
 ```
+
+
+
+# Test
+```
+cd test
+../vendor/bin/hh-autoload
+
+```
+
+
+
+```
+hhvm -m server -p 8000 -d hhvm.server.source_root=/mnt/d/Proj/hramework/src/test/ -d hhvm.server.default_document=main.hack &
+```
