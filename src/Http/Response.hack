@@ -12,7 +12,7 @@ class Response {
         foreach ($this->headers as $key => $value) {
             \header($key.': '.$value);
         }
-        echo $this->content;
+        echo $this->content."\n";
     }
 
     public function setContent(string $content): this {
@@ -23,6 +23,10 @@ class Response {
     public function setStatusCode(int $code): this {
         $this->statusCode = $code;
         return $this;
+    }
+
+    public function getStatusCode(): int {
+        return $this->statusCode;
     }
 
     public function setHeader(string $key, string $value): this {

@@ -7,13 +7,13 @@ use Hramework\Http\Response;
 
 final class UserController {
   <<Route("GET", '/users')>>
-  public static function getUser(Request $request): Response {
-    echo "Hey!\n";
-    return new Response('Test User!\n');
+  public static function getUsers(Request $request): Response {
+    return new Response('List of Users!');
   }
 
-  // <<Route("GET", '/posts')>>
-  // public static function getUser(Request $request): Response {
-  //   return new Response('Test Posts!');
-  // }
+  <<Route("POST", '/users')>>
+  public static function createUser(Request $request): Response {
+    $body = $request->getBody();
+    return new Response('User created with data: '.($body ?? 'No data'));
+  }
 }

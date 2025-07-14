@@ -2,6 +2,7 @@ use Hramework\Core\Kernel;
 use Test\Controllers\UserController;
 use Hramework\Http\Request;
 use Hramework\Http\HttpMethod;
+use Hramework\Http\Middleware\LoggingMiddleware;
 
 <<__EntryPoint>>
 function main(): void {
@@ -12,19 +13,26 @@ function main(): void {
         UserController::class,
     ];
 
-    // 2. Create a kernel with the controllers and run the framework
+    // 2. Create a kernel with the controllers
     $kernel = new Kernel($controllers);
     
-    // --- Simulate a specific request for testing ---
-    // Create a Request object for GET /user
-    $request = new Request(HttpMethod::GET, '/users', dict[], null);
-  
-    // Handle the request directly (instead of Kernel->run() which uses createFromGlobals())
-    $response = $kernel->handle($request);
+    // 3. Add middlewares
+    $kernel->addMiddleware(new LoggingMiddleware());
 
-    // Send the response (for CLI, this will echo the content)
-    $response->send();
-    // --- End simulation ---
+    // --- Simulate a GET request for /users ---
+    echo "\n--- Simulating GET /users ---\n";
+    $getRequest = new Request(HttpMethod::GET, '/users', dict[], null);
+    $getResponse = $kernel->handle($getRequest);
+    $getResponse->send();
+
+    // --- Simulate a POST request for /users ---
+    echo "\n--- Simulating POST /users ---\n";
+    $postBody = '{"name": "John Doe", "email": "john.doe@example.com"}';
+    $postRequest = new Request(HttpMethod::POST, '/users', dict['Content-Type' => 'application/json'], $postBody);
+    $postResponse = $kernel->handle($postRequest);
+    $postResponse->send();
+
+    echo "\n--- Simulation Complete ---\n";
 }
 
 function init_autoload():void {
