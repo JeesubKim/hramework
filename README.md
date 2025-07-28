@@ -14,6 +14,10 @@ Middleware 기능
 
 DI Container (선택)
 
+## Future Refactoring
+
+- Controller Method Parameter Auto-Injection: Automatically inject path/query parameters into controller method arguments (e.g., `function getUser(int $id): Response`).
+
 
 
 

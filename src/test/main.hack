@@ -1,8 +1,10 @@
+
 use Hramework\Core\Kernel;
 use Test\Controllers\UserController;
 use Hramework\Http\Request;
 use Hramework\Http\HttpMethod;
 use Hramework\Http\Middleware\LoggingMiddleware;
+use Hramework\Http\Middleware\PathParameterMiddleware;
 
 <<__EntryPoint>>
 function main(): void {
@@ -16,14 +18,21 @@ function main(): void {
     // 2. Create a kernel with the controllers
     $kernel = new Kernel($controllers);
     
-    // 3. Add middlewares
+    // 3. Add middlewares (order matters! PathParameterMiddleware before LoggingMiddleware)
+    $kernel->addMiddleware(new PathParameterMiddleware($controllers)); // Pass controllers to PathParameterMiddleware
     $kernel->addMiddleware(new LoggingMiddleware());
 
-    // --- Simulate a GET request for /users ---
-    echo "\n--- Simulating GET /users ---\n";
-    $getRequest = new Request(HttpMethod::GET, '/users', dict[], null);
-    $getResponse = $kernel->handle($getRequest);
-    $getResponse->send();
+    // --- Simulate a GET request for /users with query params ---
+    echo "\n--- Simulating GET /users?id=123&name=Alice ---\n";
+    $getRequestWithQuery = new Request(HttpMethod::GET, '/users?id=123&name=Alice', dict[], null);
+    $getResponseWithQuery = $kernel->handle($getRequestWithQuery);
+    $getResponseWithQuery->send();
+
+    // --- Simulate a GET request for /users/<id> ---
+    echo "\n--- Simulating GET /users/456 ---\n";
+    $getRequestWithPath = new Request(HttpMethod::GET, '/users/456', dict[], null);
+    $getResponseWithPath = $kernel->handle($getRequestWithPath);
+    $getResponseWithPath->send();
 
     // --- Simulate a POST request for /users ---
     echo "\n--- Simulating POST /users ---\n";

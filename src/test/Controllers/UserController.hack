@@ -1,3 +1,4 @@
+
 namespace Test\Controllers;
 
 use Hramework\Attributes\Route;
@@ -8,7 +9,23 @@ use Hramework\Http\Response;
 final class UserController {
   <<Route("GET", '/users')>>
   public static function getUsers(Request $request): Response {
-    return new Response('List of Users!');
+    // Using list() for destructuring query parameters
+    list($id, $name) = tuple($request->getQueryParam('id'), $request->getQueryParam('name'));
+    
+    $responseContent = 'List of Users!';
+    if ($id !== null) {
+        $responseContent .= ' User ID: '.$id;
+    }
+    if ($name !== null) {
+        $responseContent .= ' User Name: '.$name;
+    }
+    return new Response($responseContent);
+  }
+
+  <<Route("GET", '/users/<id>')>>
+  public static function getUserById(Request $request): Response {
+    $id = $request->getPathParam('id');
+    return new Response('Details for User ID: '.($id ?? 'Not found'));
   }
 
   <<Route("POST", '/users')>>

@@ -3,7 +3,7 @@
 namespace Facebook\AutoloadMap\Generated {
 
 function build_id(): string {
-  return '2025-07-13T11:16:03-07:00!11288afe00b0f7fc8ad41f69f7c7a511';
+  return '2025-07-18T17:16:29-07:00!fe317fcc3db27394d8f4941f07d7f17c';
 }
 
 function root(): string {
@@ -24,20 +24,21 @@ function map_uncached(): \Facebook\AutoloadMap\AutoloadMap {
   'class' => 
   dict [
     'hramework\\cli\\command' => 'src/Cli/Command.hack',
-    'hramework\\cli\\runservercommand' => 'src/Cli/RunServerCommand.hack',
-    'hramework\\http\\httpmethod' => 'src/Http/HttpMethod.hack',
     'hramework\\http\\imiddleware' => 'src/Http/IMiddleware.hack',
-    'hramework\\cli\\buildcommand' => 'src/Cli/BuildCommand.hack',
     'hramework\\cli\\helpcommand' => 'src/Cli/HelpCommand.hack',
+    'hramework\\cli\\buildcommand' => 'src/Cli/BuildCommand.hack',
+    'hramework\\http\\httpmethod' => 'src/Http/HttpMethod.hack',
     'hramework\\cli\\clikernel' => 'src/Cli/CliKernel.hack',
+    'hramework\\http\\request' => 'src/Http/Request.hack',
     'hramework\\attributes\\route' => 'src/Attributes/Route.hack',
+    'hramework\\cli\\runservercommand' => 'src/Cli/RunServerCommand.hack',
+    'hramework\\http\\middleware\\loggingmiddleware' => 'src/Http/Middleware/LoggingMiddleware.hack',
     'hramework\\core\\kernel' => 'src/Core/Kernel.hack',
     'hramework\\http\\response' => 'src/Http/Response.hack',
-    'hramework\\http\\request' => 'src/Http/Request.hack',
-    'hramework\\http\\middleware\\loggingmiddleware' => 'src/Http/Middleware/LoggingMiddleware.hack',
     'test\\controllers\\usercontroller' => 'src/test/Controllers/UserController.hack',
     'hramework\\logging\\logger' => 'src/Logging/Logger.hack',
     'hramework\\routing\\router' => 'src/Routing/Router.hack',
+    'hramework\\http\\middleware\\pathparametermiddleware' => 'src/Http/Middleware/PathParameterMiddleware.hack',
   ],
   'function' => 
   dict [
